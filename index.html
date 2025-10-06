@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-language" content="en">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSA Online Tools</title>
+  <meta name="keywords" content="RSA, encryption, decryption, key generator, sign, verify, public key cryptography, online RSA tool">
+  <meta name="description" content="RSA Online Tools provide key generation, encryption, decryption, signing, and verification using RSA algorithm.">
+  <meta name="author" content="Underrated">
+  <link rel="icon" href="images/logo.svg">
+  <link rel="stylesheet" href="css/style.css?v=1">
+
+  <script>
+    if (localStorage.getItem('DARK') === '1') {
+      document.documentElement.classList.add('dark-theme');
+    }
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <div class="mask"></div>
+      <div class="container">
+        <header>
+          <a href="./">
+            <img src="images/logo.svg" width="20" height="20" alt="Logo">
+            <h2>RSA Tools</h2>
+          </a>
+          <div class="toolbar">
+            <button class="icon theme" id="theme-toggle">
+              <img class="light" src="images/light.svg" alt="Dark mode" title="Dark mode">
+              <img class="dark" src="images/dark.svg" alt="Light mode" title="Light mode">
+            </button>
+          </div>
+        </header>
+
+        <div class="section">
+          <h3>RSA Cryptography</h3>
+          <nav>
+            <ol>
+              <li><a href="rsa/key-generator/">Key Generator</a></li>
+              <li><a href="rsa/encrypt/">Encryption</a></li>
+              <li><a href="rsa/decrypt/">Decryption</a></li>
+              <li><a href="rsa/sign/">Sign Message</a></li>
+              <li><a href="rsa/verify/">Verify Signature</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="section">
+          <h3>About RSA</h3>
+          <p>RSA (Rivest–Shamir–Adleman) is a public-key cryptosystem used for secure data transmission and digital signatures.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+      <div class="top-nav">
+        <button id="sidebar-toggler" aria-controls="sidebar" aria-expanded="false" aria-label="Menu">
+          <img src="images/menu.svg" width="24" height="24" alt="Menu">
+        </button>
+      </div>
+
+      <header>
+        <h1>RSA Online Tools</h1>
+        <p>Use RSA to generate keys, encrypt and decrypt messages, or sign and verify digital signatures directly in your browser.</p>
+      </header>
+
+      <main>
+        <div class="section">
+          <h2>RSA Features</h2>
+          <div class="blocks">
+            <div class="block">
+              <h3>Key Generator</h3>
+              <p>Generate public and private RSA keys with customizable key sizes (1024, 2048, 4096 bits).</p>
+              <a href="rsa/key-generator/" class="button">Open Tool</a>
+            </div>
+
+            <div class="block">
+              <h3>Encrypt & Decrypt</h3>
+              <p>Use RSA encryption to protect your data and RSA decryption to recover it using the private key.</p>
+              <a href="rsa/encrypt/" class="button">Encrypt</a>
+              <a href="rsa/decrypt/" class="button">Decrypt</a>
+            </div>
+
+            <div class="block">
+              <h3>Digital Signatures</h3>
+              <p>Sign messages using your private key and verify them using the corresponding public key.</p>
+              <a href="rsa/sign/" class="button">Sign</a>
+              <a href="rsa/verify/" class="button">Verify</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>What is RSA?</h2>
+          <p>RSA is one of the most widely used asymmetric encryption algorithms in modern cryptography. It uses a pair of keys: one for encryption (public key) and another for decryption (private key). The security of RSA relies on the difficulty of factoring large prime numbers.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Dark mode toggle
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark-theme');
+      localStorage.setItem('DARK', document.documentElement.classList.contains('dark-theme') ? '1' : '0');
+    });
+
+    // Sidebar toggle
+    const sidebar = document.getElementById('sidebar');
+    const toggler = document.getElementById('sidebar-toggler');
+    toggler.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
